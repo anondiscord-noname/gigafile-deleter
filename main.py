@@ -1,14 +1,10 @@
-import requests
+#import requests
 import threading
 import time
 import sys
 
-proxies = None
-#proxies = {"http":"socks5://localhost:9050/","https":"socks5://localhost:9050/"}
 deleted = False
 url = input("ファイルurl: ")
-serverid = url.split("://")[1].split(".")[0]
-filename = url.split(".nu/")[1].split("/")[0].split("?")[0]
 hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
 
 cor = random.choice(hex) + random.choice(hex) + random.choice(hex) + random.choice(hex)

@@ -11,14 +11,17 @@ serverid = url.split("://")[1].split(".")[0]
 filename = url.split(".nu/")[1].split("/")[0].split("?")[0]
 hex = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f']
 
+cor = random.choice(hex) + random.choice(hex) + random.choice(hex) + random.choice(hex)
+
 def remover(key):
     global deleted
     if deleted == True:return
     while True:
         try:
             print("削除キー試行: "+key)
-            status = requests.get("https://"+serverid+".gigafile.nu/remove.php?file="+filename+"&delkey="+key,proxies=proxies,timeout=5).json()["status"]
-            if status == 0 and deleted == False:print("削除されました！");deleted = True
+            time.sleep(0.2)
+            hit = key == cor
+            if hit and deleted == False:print("削除されました！");deleted = True
             break
         except:continue
 
